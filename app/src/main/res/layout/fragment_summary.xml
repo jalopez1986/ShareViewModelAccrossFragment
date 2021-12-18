@@ -58,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/order_summary_margin"
-                    tools:text="6 cupcakes" />
+                    android:text="@{viewModel.quantity.toString()}" />
 
                 <View
                     android:id="@+id/divider1"
@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/order_summary_margin"
-                    tools:text="Chocolate" />
+                    android:text="@{viewModel.flavor}" />
 
                 <View
                     android:id="@+id/divider2"
@@ -96,7 +96,7 @@
                     style="@style/Widget.Cupcake.TextView.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pickup_date" />
+                    android:text="@{viewModel.date}" />
 
                 <TextView
                     android:id="@+id/date"
