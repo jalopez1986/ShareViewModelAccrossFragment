@@ -24,3 +24,18 @@ Getting Started
 2. Download the sample.
 3. Import the sample into Android Studio.
 4. Build and run the sample.
+
+
+Information of interes
+Kotlin apply
+clark.apply {
+    firstName = "Clark"
+    lastName = "James"
+    age = 18
+}
+
+// The equivalent code without apply scope function would look like the following.
+
+clark.firstName = "Clark"
+clark.lastName = "James"
+clark.age = 18
