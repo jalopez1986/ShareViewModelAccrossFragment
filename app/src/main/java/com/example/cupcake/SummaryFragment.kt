@@ -25,11 +25,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentSummaryBinding
 import com.example.cupcake.model.OrderViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * [SummaryFragment] contains a summary of the order details with a button to share the order
  * via another app.
  */
+
+@AndroidEntryPoint
 class SummaryFragment : Fragment() {
 
     // Binding object instance corresponding to the fragment_summary.xml layout

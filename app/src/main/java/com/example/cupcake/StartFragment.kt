@@ -24,10 +24,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentStartBinding
 import com.example.cupcake.model.OrderViewModel
+import com.example.cupcake.model.OrderViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * This is the first screen of the Cupcake app. The user can choose how many cupcakes to order.
  */
+@AndroidEntryPoint
 class StartFragment : Fragment() {
 
     // Binding object instance corresponding to the fragment_start.xml layout
@@ -35,7 +39,10 @@ class StartFragment : Fragment() {
     // when the view hierarchy is attached to the fragment.
     private var binding: FragmentStartBinding? = null
 
-    private val sharedViewModel: OrderViewModel by activityViewModels()
+    @Inject
+    lateinit var viewModelFactory: OrderViewModelFactory
+
+    private val sharedViewModel: OrderViewModel by activityViewModels() { viewModelFactory }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,6 +63,7 @@ class StartFragment : Fragment() {
      * Start an order with the desired quantity of cupcakes and navigate to the next screen.
      */
     fun orderCupcake(quantity: Int) {
+        println("Jorge orderCupcake")
         sharedViewModel.setQuantity(quantity)
 
         if (sharedViewModel.hasNoFlavorSet()) {
